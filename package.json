@@ -1,0 +1,14 @@
+{
+  "name": "footballwebsite",
+  "version": "1.0.0",
+  "description": "Test Website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kanja",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
