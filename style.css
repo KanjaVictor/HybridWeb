@@ -1,3 +1,5 @@
+/*----------------CSS RESET---------------------*/
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -75,69 +77,251 @@ h6 {
     isolation: isolate;
 }
 
-/*///////////////////////////////////////////////////////////////////////////*/
+/*----------------Page Layout--------------------*/
+
+/*
+Anatomy of CSS Ruleset 
+
+        Selector{
+            Property: Property value;
+        }
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
 }
 
 ul {
+    /*Element Selector -  Use tags and select elements of that kind.*/
     padding: 0;
 }
 
 .nav-header {
-    background-color: black;
-    font-size: 30px;
-    font-family: 'Courier New', Courier, monospace;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /*Class Selector - More specific and therefore overrule other selectors(element selectors).*/
+    background-color: rgb(248, 196, 196);
+    padding: 1rem;
 }
+
+#movie-title {
+    /*Id Selector - An even more specific selector.*/
+    color: blueviolet;
+}
+
+/*Universal Selector - It selects all the elements*/
+/* * {
+    font-family: monospace;
+} */
 
 .nav-header ul {
     list-style-type: none;
+    display: flex;
+    justify-content: space-around;
 }
 
-.nav-header ul li {
-    display: inline-block;
+/* .nav-header ul li {
 
-}
+} */
 
 .nav-header ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
-    margin: 50px;
 }
 
 .nav-header ul li a:hover {
-    background-color: rgb(243, 166, 166);
+    background-color: rgb(245, 153, 153);
     /*Setting it to cover the area you want*/
 }
 
-p {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+.logo {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.movie-info {
+    line-height: 1.5;
+    padding: 1em;
+    margin: 2em 2em 2em 2em;
+    /*The values are applied in a clockwise fashion from margin-top*/
+    /*em is calculated from rem; default rem value is 1rem = 16px*/
+    /*Since there's no defined rem value in the element the em property value inherits from the body(font-size : 1.5rem)*/
+}
+
+.movie-poster {
+    border: 1px solid grey;
+}
+
+.movie-poster img {
+    align-items: center;
+    justify-content: center;
+    border: 2px dotted red;
+    padding: 1.5rem;
 }
 
 footer {
     margin-top: auto;
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
+    justify-items: space-between;
     /*Why does this property not work when it is applied on*/
-    background-color: rgb(77, 76, 76);
+    background-color: rgb(248, 196, 196);
 }
 
 footer ul li {
     display: inline-block;
 }
 
-footer ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 20px;
+footer ul li img {
+    padding: 1rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
     /*How to set padding not to overflow from the footer*/
-    font-size: 20px;
 }
 
-footer a:hover {
+footer img:hover {
     background-color: rgb(243, 166, 166);
+    padding: 1rem;
+}
+
+/*--------------------------------------------------*/
+#contact-page {
+    display: grid;
+    grid-template-columns: repeat(4 1fr);
+    gap: 1rem;
+    /* grid-auto-rows: auto; */
+    grid-auto-flow: column;
+    grid-template-areas:
+        "a a a"
+        "b c c"
+        "b c c"
+    ;
+}
+
+#form-message {
+    grid-column: span 2;
+}
+
+.first {
+    grid-area: b;
+}
+
+.second {
+    grid-area: c;
+}
+
+p {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+}
+
+h2 {
+    padding: 1rem;
+}
+
+/* header {
+    grid-area: hd;
+}
+
+footer {
+    grid-area: ft;
+} */
+
+/*----------------------Form------------------------*/
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2 50%);
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #333;
+    border-radius: 1rem;
+}
+
+/* form .contact-form {
+    display: table;
+    gap: 0.5rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid #333;
+} */
+
+.fullwidth {
+    grid-column: span 2;
+}
+
+div .contact-form {
+    display: inline-block;
+}
+
+input,
+textarea {
+    border: 2px solid #333;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    font: 1.25rem / 1.5 sans-serif;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 0.5;
+    color: #2276dd;
+}
+
+button {
+    border: 0;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+button[type="submit"] {
+    background-color: #2276dd;
+    color: white;
+}
+
+button[type="reset"] {
+    text-decoration: underline;
+    margin-left: 2rem;
+}
+
+button:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    transition: .2s ease-in-out 0s;
+}
+
+label {
+    display: inline-block;
+    font: bold 1.5rem 'Roboto';
+    margin-bottom: 0.5rem;
+}
+
+.small-label {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 0.25rem;
+    margin-right: 1.5rem;
+    font: 1.25rem 'Roboto';
 }
