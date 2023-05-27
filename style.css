@@ -325,3 +325,18 @@ label {
     margin-right: 1.5rem;
     font: 1.25rem 'Roboto';
 }
+
+/*-------------------------Contact Article--------------------------------*/
+
+.article-image li {
+    padding: 1rem;
+}
+
+.article-image li img {
+    float: left;
+    padding-right: 0.5rem;
+}
+
+figcaption {
+    position: relative;
+}
