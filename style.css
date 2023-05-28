@@ -93,14 +93,16 @@ body {
     display: grid;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
+
 }
 
 .container {
     display: grid;
     grid-template-rows: auto 1fr auto;
     /*Removed zoom on loading contact page*/
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: scroll;
 }
 
 ul {
