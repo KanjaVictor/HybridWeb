@@ -279,7 +279,7 @@ footer {
 .second form {
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
-    background-color: yellow;
+    /* background-color: yellow; */
     padding: 1rem;
     border: 2px solid #333;
     border-radius: 1rem;
