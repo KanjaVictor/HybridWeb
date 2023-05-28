@@ -90,17 +90,17 @@ Anatomy of CSS Ruleset
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-    height: 100%;
-    width: 100%;
     display: grid;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
-    overflow: hidden;
-    overscroll-behavior: none;
 }
 
 .container {
-    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /*Removed zoom on loading contact page*/
+    height: 100vh;
+    width: 100vw;
 }
 
 ul {
@@ -174,9 +174,8 @@ ul {
 }
 
 .foo-footer {
-    position: absolute;
+    position: relative;
     width: 100%;
-    bottom: auto;
     padding: 1rem;
     text-align: center;
     justify-items: space-between;
