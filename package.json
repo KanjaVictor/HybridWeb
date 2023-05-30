@@ -1,5 +1,5 @@
 {
-  "name": "footballwebsite",
+  "name": "hybridwebsite",
   "version": "1.0.0",
   "description": "Test Website",
   "main": "script.js",
@@ -10,5 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
