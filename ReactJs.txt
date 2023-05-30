@@ -1,0 +1,41 @@
+Components in React return a piece of JSX code that tells what should be rendered on the screen. 
+  There are two types of components:
+      1)Functional Components - Simply javascript functions.
+      2)Class Components - They work with other components in the program
+
+In React components, code reuse is primarily achieved through compostion rather than inheritance.
+
+---------The Component Lifecycle----------
+
+React Component Lifecycle.jpg
+
+                             Mounting                    Updating                      Unmounting
+                                |
+Render Phase                Constructor                                                     |
+                                |                                                           |
+                                |            New props setState() forceUpdate()             |
+                                |               \          |          /                     |
+                              Render                     Render                             |
+                                |                           |                               |   
+                                |                           |                               |   
+Commit Phase                    React updates DOM and refs                                  |
+                                |                           |                               |   
+                                |                           |                               |   
+                            componentDidMount          componentDidUpdate               componentWillUnmount
+
+Render Phase -> Pure and has no side effects. May be paused, aborted or restarted by React.
+Commit Phase -> Can work with DOM, run side effects, schedule updates.                            
+
+
+----Mounting-----
+
+These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+    -> constructor().
+    -> static getDerivedStateFromProps().
+    -> render().
+    -> componentDidMount().
+
+----Updating-----
+
+An update can be caused by changes to props or state.
+    ->Props(properties) are arguments passed into React components
