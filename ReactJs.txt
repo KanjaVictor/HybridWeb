@@ -38,4 +38,24 @@ These methods are called in the following order when an instance of a component 
 ----Updating-----
 
 An update can be caused by changes to props or state.
-    ->Props(properties) are arguments passed into React components
+    ->Props(properties) are arguments passed into React components.
+    ->Props are also how you pass data from one component to another, as parameters.
+
+    ->  static getDerivedStateFromProps().
+    ->  shouldComponentUpdate().
+    ->  render().
+    ->  getSnapshotBeforeUpdate().
+    ->  componentDidUpdate().
+
+----Unmounting-----
+
+This method is called when a component is being removed from the DOM.
+
+    ->  componentWillUnmount().
+
+----Error Handling-----
+
+These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+
+    -> static getDerivedStateFromError().
+    -> componentDidCatch(). 
