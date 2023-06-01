@@ -69,7 +69,52 @@ class SimpleForm extends Component {
     }
     render(){
         return(
-            <div className="container" style={{ width: '315px' }}></div>
+            <div className="container" style={{ width: '315px' }}>
+            <h3>Employee Registration With Required Validation</h3>
+  <form onSubmit={this.handleSubmit}>
+    <div className="form-group">
+      <label>First Name</label>
+      <input className="form-control" type="text" name="firstName" value={this.state.formFields.firstName}
+        onChange={this.handleChange} />
+      {this.state.errors.firstName &&
+      <div className="alert alert-danger">
+        {this.state.errors.firstName}
+      </div>
+      }
+    </div>
+    <div className="form-group">
+      <label>Last Name</label>
+      <input className="form-control" type="text" name="lastName" value={this.state.formFields.lastName}
+        onChange={this.handleChange} />
+      {this.state.errors.lastName &&
+      <div className="alert alert-danger">
+        {this.state.errors.lastName}
+      </div>
+      }
+    </div>
+    <div className="form-group">
+      <label>Email</label>
+      <input className="form-control" type="text" name="email" value={this.state.formFields.email}
+        onChange={this.handleChange} />
+      {this.state.errors.email &&
+      <div className="alert alert-danger">
+        {this.state.errors.email}
+      </div>
+      }
+    </div>
+    <div className="form-group">
+      <label>Password</label>
+      <input className="form-control" type="text" name="password" value={this.state.formFields.password}
+        onChange={this.handleChange} />
+      {this.state.errors.password &&
+      <div className="alert alert-danger">
+        {this.state.errors.password}
+      </div>
+      }
+    </div>
+    <input type="submit" className="btn btn-primary" value="Submit" />
+  </form>
+  </div>    
         )
     }
 }

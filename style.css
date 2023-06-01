@@ -178,7 +178,6 @@ ul {
 .foo-footer {
     position: relative;
     width: 100%;
-    padding: 1rem;
     text-align: center;
     justify-items: space-between;
     /*Why does this property not work when it is applied on*/
@@ -187,6 +186,7 @@ ul {
 
 footer ul li {
     display: inline-block;
+    justify-content: space-around;
 }
 
 footer ul li img {
@@ -194,7 +194,6 @@ footer ul li img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    overflow: hidden;
     /*How to set padding not to overflow from the footer*/
 }
 
@@ -206,17 +205,47 @@ footer img:hover {
 /*--------------------------------------------------*/
 #contact-page {
     display: grid;
-    /* grid-auto-flow: dense; */
-    /* max-width: 100%; */
-    grid-template-columns: repeat(auto-fit, 1fr);
     gap: 1rem;
-    /* grid-auto-rows: auto; */
-    grid-auto-flow: column;
-    grid-template-areas:
-        "a a a"
-        "b c c"
-        "b c c"
-    ;
+}
+
+@media (min-width: 200px) {
+    #contact-page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "a"
+            "b"
+            "c";
+    }
+
+    @media(min-width: 650px) {
+        #contact-page {
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas:
+                "a a"
+                "b c"
+                "b c";
+        }
+    }
+
+    @media(min-width: 1000px) {
+        #contact-page {
+            grid-template-columns: 1fr 2fr;
+            grid-area:
+                "a a a"
+                "b c c"
+                "b c c";
+        }
+    }
+
+    main section {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.contact-header {
+    grid-area: a;
+    /* background-color: greenyellow; */
 }
 
 .first {
@@ -229,31 +258,6 @@ footer img:hover {
     display: grid;
     grid-area: c;
     /* background-color: red; */
-}
-
-@media (min-width: 200px) {
-    #contact-page {
-        grid-template-columns: repeat(auto-fit, 1fr);
-        grid-template-areas:
-            "a"
-            "b"
-            "c";
-    }
-
-    @media(min-width: 650px) {
-        #contact-page {
-            grid-template-columns: repeat(auto-fit, 1fr);
-            grid-template-areas:
-                "a a"
-                "b c"
-                "b c";
-        }
-    }
-
-    main section {
-        display: flex;
-        justify-content: space-between;
-    }
 }
 
 p {
@@ -277,13 +281,20 @@ footer {
 /*----------------------Form------------------------*/
 
 .second form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     /* background-color: yellow; */
-    padding: 1rem;
+    /*     padding: 1rem;
     border: 2px solid #333;
-    border-radius: 1rem;
+    border-radius: 1rem; */
     margin: 1rem;
+}
+
+.second form div {
+    flex: 50%;
+    padding: 1rem;
 }
 
 /* form .contact-form {
@@ -296,16 +307,13 @@ footer {
 } */
 
 #form-message {
-    grid-column: span 2;
+    flex: 100%;
 }
 
 .fullwidth {
-    grid-column: span 2;
+    flex: 100%;
 }
 
-div .contact-form {
-    display: inline-block;
-}
 
 input,
 textarea {
@@ -319,10 +327,43 @@ input[type="email"],
 input[type="tel"],
 textarea {
     font: 1.25rem / 1.5 sans-serif;
-    display: block;
     box-sizing: border-box;
     width: 100%;
     padding: 0.5rem 0.75rem;
+    cursor: text;
+    border: none;
+    appearance: none;
+    background: #f2f2f2;
+    outline: none;
+}
+
+/*Input - Label modification*/
+
+.custom-field {
+    font-size: inherit;
+    position: relative;
+    width: 100%;
+}
+
+
+.custom-field .placeholder {
+    position: absolute;
+    font-size: 1rem;
+    left: 10px;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color: #aaa;
+    transition:
+        top 0.3 ease,
+        font-size 0.3 ease,
+        color 0.3 ease;
+}
+
+.custom-field input:focus+.placeholder {
+    top: -10px;
+    font-size: 1rem;
+    color: #222;
+    transition: 0.2s;
 }
 
 input::placeholder,
@@ -330,6 +371,7 @@ textarea::placeholder {
     opacity: 0.5;
     color: #2276dd;
 }
+
 
 button {
     border: 0;
