@@ -311,7 +311,9 @@ footer {
 }
 
 .fullwidth {
-    flex: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    height: fit-content;
 }
 
 
@@ -360,6 +362,7 @@ textarea {
         color 0.3 ease;
 }
 
+.custom-field input:valid+.placeholder,
 .custom-field input:focus+.placeholder {
     top: -10px;
     font-size: 1rem;
